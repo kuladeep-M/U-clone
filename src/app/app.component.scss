@@ -1,0 +1,27 @@
+/* Ensure the body and html take the full height */
+:host {
+    height: 97vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* App container (flex column) */
+  .app-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push footer to the bottom */
+  }
+  
+  /* Your content area where the courses, login, etc. are placed */
+  .course-container {
+    flex-grow: 1; /* This will take all remaining space */
+  }
+  
+  /* Footer Styling */
+  app-footer {
+    margin-top: auto; /* Push footer to the bottom */
+  }
+  

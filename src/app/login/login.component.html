@@ -1,0 +1,28 @@
+<div class="login-container">
+  <h2>Login</h2>
+  
+  <!-- Reactive form for login -->
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    
+    <!-- Username input -->
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input id="username" formControlName="username" type="text" placeholder="Enter username" class="form-control" />
+      <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="error-message">
+        Username is required and must be at least 3 characters long.
+      </div>
+    </div>
+
+    <!-- Password input -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password" placeholder="Enter password" class="form-control" />
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
+        Password is required and must be at least 6 characters long.
+      </div>
+    </div>
+    
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+  </form>
+</div>

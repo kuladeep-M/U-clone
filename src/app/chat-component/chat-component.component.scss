@@ -1,0 +1,197 @@
+*{
+    box-sizing: border-box;
+}
+
+/* Chatbot Container */
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: #0b3666;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, visibility 0s linear 0.3s, opacity 0.3s ease;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.8) translateX(100%); /* Initially, scale down and place out of view */
+}
+
+/* Make the container visible and open from the button */
+.chatbot-container.open {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1) translateX(0); /* Slide to its normal position */
+}
+
+/* Circular Button for Toggling Chat */
+.chat-toggle-button {
+    position: fixed;
+    visibility: hidden;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    background-color: #fff;
+    padding: 7px 7px 5px 7px;
+    border-radius: 50%;
+    border: 1px solid #0b3666;
+    color: white;
+    z-index: 100;
+    transition: background-color 0.3s ease;
+}
+
+.chat-toggle-button img {
+    height: 35px;
+    width: 35px;
+}
+
+/* Chat Toggle Button Open */
+.chat-toggle-button.open{
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1) translateX(0);
+}
+
+/* Close Button Inside Chat */
+.close-chat-button {
+    cursor: pointer;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.close-chat-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Chat Header */
+.chat-header {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Message Styling */
+.messages {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 10px;
+    overflow-y: auto;
+    align-items: flex-start; /* Default alignment for messages */
+    .user{
+        margin-left: auto;
+        display: flex;
+        justify-content: flex-end;
+    }
+}/* Message Style (applies to both user and bot) */
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 80%;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: aliceblue;
+    word-wrap: break-word; /* Ensure long words break properly */
+    white-space: normal; /* Allow text to wrap within the container */
+}
+
+/* Bot message */
+.message.bot {
+    background-color: #e0e0e0;
+    align-self: flex-start; /* Align bot messages to the left */
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+/* User message */
+.message.user {
+    background-color: #007BFF;
+    color: white;
+    align-self: flex-end; /* Align user messages to the right */
+    word-wrap: break-word;
+    white-space: normal;
+    max-width: 70%; /* Set a max-width to make sure large messages don't overflow */
+}
+/* Chat Input Styling */
+.chat-input {
+    display: flex;
+    align-items: center; /* Align both textarea and button to the center vertically */
+    gap: 10px; /* Space between the textarea and the button */
+    width: 100%; /* Ensure the chat input stretches the entire width */
+}
+
+/* Textarea Styling */
+.chat-input textarea {
+    flex-grow: 1; /* Make textarea take the remaining space */
+    min-height: 40px; /* Set the minimum height for the textarea */
+    height: 40px; /* Set a fixed height to match the button */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    outline: none;
+    font-size: 14px;
+    resize: none; /* Disable manual resizing */
+    overflow: hidden; /* Prevent scrollbars */
+    line-height: 1.4; /* Set line height for proper wrapping */
+}
+
+/* Send Button Styling */
+.chat-input button.send-button {
+    padding: 8px 12px; /* Make the button smaller */
+    background-color: #0b3666;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    height: 40px; /* Ensure the button height matches the textarea height */
+    display: flex;
+    align-items: center; /* Center the text in the button */
+    justify-content: center; /* Center the text in the button */
+}
+
+/* Button hover effect */
+.chat-input button.send-button:hover {
+    background-color: #0b3666;
+}
+
+
+/* Ensure the chat body has a minimum height when empty */
+.chat-body {
+    display: block;
+    font-size: 13px;
+    background-color: white;
+    color: #333;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    min-height: 300px;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* For Webkit browsers like Chrome, Safari */
+.messages::-webkit-scrollbar {
+    width: 6px; /* Set scrollbar width */
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background-color: rgb(54, 72, 88); /* Thumb color */
+    border-radius: 10px;
+}
+
+.messages::-webkit-scrollbar-track {
+    background-color: #e0e0e0; /* Track color */
+    border-radius: 10px;
+}
