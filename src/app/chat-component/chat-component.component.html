@@ -17,7 +17,7 @@
                          <i *ngIf="message.sender === 'bot'" class="fas fa-robot"></i>
                          <i *ngIf="message.sender === 'user'" class="fas fa-user"></i>
                      </span>
-                     <span>{{ message.text }}</span>
+                     <span [innerHTML]="message.text"></span>
                  </div>
              </div>
          </div>

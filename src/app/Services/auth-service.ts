@@ -9,14 +9,14 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-    isUserLoggedIn  = false;
+    public isUserLoggedIn  = false;
     constructor(private http: HttpClient,private router: Router) { 
         this.isUserAlreadLoggedIn();
     }
 
     isUserAlreadLoggedIn(){
         
-    if(localStorage.getItem('login')){
+    if(localStorage.getItem('token')){
         this.isUserLoggedIn = true;
     }else{
         this.router.navigate(['/login'])

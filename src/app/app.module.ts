@@ -11,6 +11,8 @@ import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontaweso
 import { HeaderComponentComponent } from './header-component/header-component.component';
 import { FooterComponent } from './footer/footer.component';
 import { CourseListComponent } from './course-list/course-list.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { PlaceOrderComponent } from './place-order/place-order.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { CourseListComponent } from './course-list/course-list.component';
     LoginComponent,
     HeaderComponentComponent,
     FooterComponent,
-    CourseListComponent
+    CourseListComponent,
+    EmployeeListComponent,
+    PlaceOrderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 
 <app-header></app-header>
 <router-outlet></router-outlet>
+<app-chat-component *ngIf="authService.isUserLoggedIn"></app-chat-component>
 <app-footer></app-footer>

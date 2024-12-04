@@ -1,6 +1,7 @@
 // signalr.service.ts
 import { Injectable } from '@angular/core';
 import * as signalR from '@microsoft/signalr';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class SignalRService {
 
   constructor() {
     this.hubConnection = new signalR.HubConnectionBuilder().configureLogging(signalR.LogLevel.Debug)  // add this for diagnostic clues
-    .withUrl("https://localhost:44365/chatHub", {
+    .withUrl(environment.apiUrl+"/chatHub", {
       accessTokenFactory: () => {
         const token = localStorage.getItem('token'); // Replace with your token retrieval logic
         return `Bearer ${token}`;
@@ -34,7 +35,7 @@ export class SignalRService {
   };
 
   public receiveMessage = () => {
-    this.hubConnection.on('ReceiveMessage', (user, message) => {
+    return this.hubConnection.on('ReceiveMessage', (user, message) => {
       // Handle the received message
       console.log(`${user}: ${message}`);
       // Update your chat component's UI with the new message

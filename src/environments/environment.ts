@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://localhost:44365"
+  //apiUrl: "https://localhost:44365"
+  apiUrl:"https://4xxs24b9-44365.inc1.devtunnels.ms",
+  companyApiUrl: "https://v8tn3q4r-44390.inc1.devtunnels.ms"
 };
 
 /*

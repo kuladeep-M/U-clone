@@ -94,11 +94,10 @@
 .message {
     padding: 10px;
     border-radius: 5px;
-    max-width: 80%;
+    max-width: 250px;
     margin-bottom: 10px;
     display: flex;
     gap: 10px;
-    align-items: center;
     background: aliceblue;
     word-wrap: break-word; /* Ensure long words break properly */
     white-space: normal; /* Allow text to wrap within the container */
