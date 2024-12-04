@@ -22,7 +22,7 @@
              </div>
          </div>
          <div class="chat-input">
-            <textarea #messageInput [(ngModel)]="message" placeholder="Type a message..." (input)="autoResize($event)" (keydown.enter)="sendMessage()"></textarea>
+            <textarea #messageInput [(ngModel)]="message" placeholder="Type a message..." (input)="autoResize()" (keydown.enter)="sendMessage($event)"></textarea>
             <button class="send-button" (click)="sendMessage()">Send</button>
          </div>
      </div>
