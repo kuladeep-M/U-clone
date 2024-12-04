@@ -59,15 +59,13 @@ export class ChatComponent implements OnInit {
 		this.scrollToBottom();
 
 		//this.signalRService.sendMessage(this.userName, this.message);
-		async () => {
-			this.http.post(environment.apiUrl + '/bot', { query: this.message }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }, responseType: 'text' }).subscribe(x => {
-				console.log(x)
-				if (x) {
-					this.messages.push({ text: x as string, sender: 'bot' });
-					this.scrollToBottom();
-				}
-			})
-		}
+		this.http.post(environment.apiUrl + '/bot', { query: this.message }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }, responseType: 'text' }).subscribe(x => {
+			console.log(x)
+			if (x) {
+				this.messages.push({ text: x as string, sender: 'bot' });
+				this.scrollToBottom();
+			}
+		})
 		this.message = null;
 		this.autoResize();
 	}
